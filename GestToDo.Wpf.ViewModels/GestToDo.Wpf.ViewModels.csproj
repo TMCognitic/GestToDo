@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GestToDo.Api.Models.Client\GestToDo.Api.Models.Client.csproj" />
+    <ProjectReference Include="..\GestToDo.Models.Client\GestToDo.Models.Client.csproj" />
+    <ProjectReference Include="..\ToolBox.Patterns.MVVM\ToolBox.Patterns.MVVM.csproj" />
+  </ItemGroup>
+
+</Project>
