@@ -42,11 +42,12 @@ namespace GestToDo.Api.Models.Client.Services
 
         public bool Update(int key, ToDo entity)
         {
-            Command command = new Command("Update ToDo set Title = @Title, [Description] = @Description, Done = @Done where Id = @Id;");
+            Command command = new Command("Update ToDo set Title = @Title, [Description] = @Description, Done = @Done, ValidationDate = @ValidationDate where Id = @Id;");
             command.AddParameter("Id", key);
             command.AddParameter("Title", entity.Title);
             command.AddParameter("Description", entity.Description);
             command.AddParameter("Done", entity.Done);
+            command.AddParameter("ValidationDate", entity.Done ? DateTime.Now : (object)null);
             return _dbConnection.ExecuteNonQuery(command) == 1;
         }
 

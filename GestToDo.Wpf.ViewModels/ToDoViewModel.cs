@@ -85,10 +85,12 @@ namespace GestToDo.Wpf.ViewModels
 
         private bool CanUpdate()
         {
-            return Title != Entity.Title;
+            return Title != Entity.Title 
+                || Description != Entity.Description
+                || Done != Entity.Done;
         }
 
-        private void Update()
+        private void Update()        
         {
             string oldTitle = Entity.Title;
             string oldDescription = Entity.Description;
@@ -98,6 +100,8 @@ namespace GestToDo.Wpf.ViewModels
             Entity.Description = Description;
             Entity.Done = Done;
 
+            UpdateCommand.RaiseCanExecuteChanged();
+            
             if (!_repository.Update(Id, Entity))
             {
                 Entity.Title = oldTitle;

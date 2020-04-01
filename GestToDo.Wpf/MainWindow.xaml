@@ -13,7 +13,9 @@
         </Grid.ColumnDefinitions>
         <DataGrid ItemsSource="{Binding Items}" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Title" Width="*" Binding="{Binding Title}" />
+                <DataGridTextColumn Header="Title" Width="*" Binding="{Binding Title, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridTextColumn Header="Description" Width="*" Binding="{Binding Description, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridCheckBoxColumn Header="Done" Width="Auto" Binding="{Binding Done, UpdateSourceTrigger=PropertyChanged}" IsThreeState="False" />
                 <DataGridTemplateColumn Width="50">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
